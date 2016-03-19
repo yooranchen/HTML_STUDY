@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录次数统计</title>
+    <style type="text/css">
+        div {
+            text-align: center;
+            width: 400px;
+            padding: 20px;
+        }
+    </style>
+
+    <script>
+        spanInput = document.getElementById("input_span");
+        divStatus = document.getElementById("div_status");
+        btnLogIn = document.getElementById("btn_login");
+        btnLogout = document.getElementById("btn_logout");
+        function check() {
+            var name = localStorage.getItem("username");
+            var count = localStorage.getItem("count");
+            if (null != name) {
+                var divStatus = document.getElementById("div_status");
+                if (null == count || 0 == count) {
+                    count = 1;
+                    localStorage.setItem("count", 1);
+                } else {
+                    localStorage.setItem("count", count++);
+                }
+                var htmls = "登录成功:用户名为" + name + ",当前为第" + count + "次登录";
+                divStatus.innerHTML = htmls;
+
+                btnLogIn.style.display = "none";
+                btnLogout.style.display = "";
+            }
+        }
+
+        function btnLoginFunction() {
+            //提示第几次登录
+            var name = localStorage.getItem("username");
+            var count = localStorage.getItem("count");
+            if (0 == count) {
+                count = 1
+                localStorage.setItem("count", 1);
+            } else {
+                localStorage.setItem("count", count++);
+            }
+            var htmls = "登录成功:用户名为" + name + ",当前为第" + count + "次登录";
+            divStatus.innerHTML = htmls;
+            btnLogout.style.display = "";
+            btnLogIn.style.display = "none";
+        }
+
+        function btnLogoutFunction() {
+            //清除
+            delete localStorage.username;
+            spanInput.style.display = "";
+            divStatus.innerHTML = "";
+            btnLogout.style.display = "";
+        }
+
+        //提交姓名,显示登录按钮
+        function btnSubmit() {
+            var spanInput = document.getElementById("input_span");
+            var divStatus = document.getElementById("div_status");
+            var inputName = document.getElementById("input_name");
+            var btnLogin = document.getElementById("btn_login");
+            if (inputName.value == "") {
+                alert("请输入姓名!");
+            } else {
+                localStorage.setItem("username", inputName.value);
+                spanInput.style.display = "none";
+                btnLogin.style.visibility = "visible";
+                var htmls = "用户名设置完成,用户名为:" + inputName.value;
+                divStatus.innerHTML = htmls;
+            }
+        }
+    </script>
+</head>
+<body onload="check()">
+<article>
+    <div class="div" id="div_login">
+        <button id="btn_login" onclick="btnLoginFunction()">登录</button>
+        <button id="btn_logout" onclick="btnLogoutFunction()">注销</button>
+    </div>
+    <img src="logo.jpg" width="400px" height="300px"/>
+    <div class="div" id="div_status">
+        <span id="input_span">
+            <input type="text" id="input_name" placeholder="请输入姓名">
+            <button id="btn_submit" onclick="btnSubmit()">提交</button>
+        </span>
+    </div>
+</article>
+</body>
+</html>

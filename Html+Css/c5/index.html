@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript">
+    function check() {
+//        if (typeof(Storage) == "undefined") {
+//            alert("浏览器不支持Web storage")
+//        } else {
+//            alert("浏览器支持Web storage")
+//        }
+
+    }
+    function saveData() {
+        alert("执行了saveData");
+        var input = document.getElementById("input_name");
+        var name = input.value;
+        localStorage.setItem("name", name);
+    }
+    function readData() {
+        alert("执行了readData");
+        var showArea = document.getElementById("show_localStorage");
+        var name = localStorage.getItem("name");
+        var htmls = "从localStorage读取的内容是" + name;
+        showArea.innerHTML = htmls;
+        delete localStorage.name;
+    }
+</script>
+<body onload="check()">
+<header>
+    web 存储测试
+</header>
+<article>
+        请输入你的<input type="text" id="input_name"><br/>
+
+        <div id="show_localStorage"></div>
+        <br/>
+        <button id="btn_save" onclick="saveData()">保存到LocalStorage</button>
+        <button id="btn_read" onclick="readData()">读取存储的值</button>
+</article>
+<footer>
+    这是底部
+</footer>
+</body>
+</html>
