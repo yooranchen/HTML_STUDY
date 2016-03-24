@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+<title></title> 
+<script src="jquery-1.10.2.min.js"></script>
+<style>
+div{border:2px dotted #ff0000;padding:5px;}
+</style>
+<script>
+var db,str;
+$(function () {
+	window.indexedDB = window.indexedDB || window.mozIndexedDB || 	window.webkitIndexedDB || window.msIndexedDB;
+	if (!window.indexedDB) {
+	    alert("您的浏览器不支持indexedDB");
+	}
+	//打开数据库
+    var req = window.indexedDB.open("MyDatabaseA");
+    req.onsuccess = function (e) {
+		db = this.result;
+		str="MyDatabaseA创建完成"
+				+ " >状态：" + this.readyState
+				+ " >版本：" + db.version
+				+ "<br>";
+		 $("div").html(str);
+    };
+    req.onerror = function (e) {    
+	   $("div").html("打开数据库错误:"+e.target.errorCode);
+    };
+	//onupgradeneeded事件
+    req.onupgradeneeded = function(e) { 
+	  //创建objectStore
+	  var objectStore = e.target.result.createObjectStore("customer", { keyPath: "user_id" });
+	  objectStore.createIndex("name", "name", { unique: false });	  
+	};
+	$("#addbtn").click(function(){
+		add_click('add');
+	});
+	$("#putbtn").click(function(){
+		add_click('put');
+	});
+})
+
+//新增数据
+function add_click(add_way){
+	str="";
+	var transaction = db.transaction("customer", "readwrite");
+	transaction.oncomplete = function(e) {
+		str+="交易成功<br>";
+		$("div").html(str);
+	};
+	transaction.onerror = function(e) {$("div").html("交易失败");};
+	store = transaction.objectStore("customer");
+
+	if(add_way=="add")
+		request = store.add({user_id: $("#user_id").val(), name: $("#name").val()});
+	else
+		request = store.put({user_id: $("#user_id").val(), name: $("#name").val()});
+
+	request.onsuccess = function (e){
+		str+="新增数据成功<br>";
+		$("div").html(str);
+	}
+	request.onerror = function (e){
+		$("div").html("新增数据失败:"+e.target.error);
+	}
+}
+
+</script>
+</head>
+<body>
+账号：<input type="text" id='user_id'><br>
+姓名：<input type="text" id='name'><br>
+<button id="addbtn">新　增</button> 
+<button id="putbtn">新增/更新</button> 
+<div id="message"></div>
+</body>
+</html>

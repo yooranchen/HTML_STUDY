@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery Mobile初始化事件</title>
+<!--最佳化屏幕宽度-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="jquery.mobile-1.4.0.min.css" />
+<script src="jquery-1.9.1.min.js"></script>
+<script src="jquery.mobile-1.4.0.min.js"></script>
+<script type="text/javascript">
+$(document).one("pagebeforecreate",function(){
+  alert("pagebeforecreate事件被触发了!")
+});
+$(document).one("pagecreate",function(){
+  alert("pagecreate事件被触发了!")
+});
+$(document).one("pageinit",function(){
+  alert("pageinit事件被触发了!")
+});
+</script>
+</head>
+<body>
+	<!--第一页-->
+	<div data-role="page" data-title="第一页" id="first" data-theme="a">
+		<div data-role="header">
+			<a href="#second">按我到第二页</a>
+			<h1>初始化事件</h1>
+		</div>
+		<div data-role="content">
+			初始化事件测试<br>
+			这是第一页
+		</div>
+		<div data-role="footer">
+			<h4>页脚</h4>
+		</div>
+	</div>
+	<!--第二页-->
+	<div data-role="page" data-title="第二页" id="second" data-theme="b">
+		<div data-role="header">
+			<a href="#first">返回第一页</a>
+			<h1>初始化事件</h1>
+		</div>
+		<div data-role="content">
+			初始化事件测试<br>
+			这是第二页
+		</div>
+		<div data-role="footer">
+			<h4>页脚</h4>
+		</div>
+	</div>
+</body>
+</html>

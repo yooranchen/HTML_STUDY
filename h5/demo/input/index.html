@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input元素</title>
+</head>
+<body>
+<!--url类型-->
+<form>
+    <input name="url" type="url" value="http://www.baidu.com">
+    <input type="submit" value="提交">
+</form>
+<!--emal类型-->
+<form>
+    <input type="email" name="email">
+    <input type="submit" value="提交">
+</form>
+data类型
+<form>
+    <input type="date" name="time">
+</form>
+time类型
+<form>
+    <input name="time" type="time" value="10:10">
+</form>
+dateTime类型
+<form>
+    <input name="datetime" type="datetime">
+
+</form>
+datetime-local
+<input name="datetime-local" type="datetime-local">
+
+month元素
+<form>
+
+    <input name="month" type="month" value="2010-01">
+    <input name="week" type="week" value="星期一">
+</form>
+number类型
+<form>
+    <input type="number" name="number" max="100" min="0" step="10">
+    <input type="submit">
+</form>
+
+计算器
+</body>
+<form>
+    <input type="number" id="number1">
+    +
+    <input type="number" id="number2">
+    =
+    <input type="number" id="result" readonly>
+
+    <input type="button" value="计算" onclick="caculate()">
+</form>
+search类型
+<form>
+    <input type="search">
+</form>
+tel类型
+<form>
+    <input type="tel">
+</form>
+color类型
+<form>
+    <input type="color"
+           onchange="document.body.style.backgroundColor = document.getElementById('currentColor').textContent = this.value">
+    <span id="currentColor"/>
+</form>
+output元素
+<form id="testform">
+    <input id="range" type="range" max="100" min="0" step="5" value="10" onchange="value_change()">
+    <output id="output">10</output>
+</form>
+<script>
+    function value_change() {
+        var num = document.getElementById("range").value;
+        document.getElementById("output").value = num;
+    }
+</script>
+<script>
+    function caculate() {
+        var num1 = document.getElementById("number1").valueAsNumber;
+        var num2 = document.getElementById("number2").valueAsNumber;
+        document.getElementById("result").valueAsNumber = num1 + num2;
+    }
+</script>
+</html>

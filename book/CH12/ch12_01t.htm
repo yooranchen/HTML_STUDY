@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery Mobile初始化事件</title>
+<!--最佳化屏幕宽度-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="jquery.mobile-1.4.0.min.css" />
+<script src="jquery-1.9.1.min.js"></script>
+<script src="jquery.mobile-1.4.0.min.js"></script>
+<script type="text/javascript">
+$( document ).one( "pagecreate", ".demo_page", function() {
+	$("#btn_on").on('click',function(){
+		alert("你单击了on按钮")
+	});
+	$("#btn_one").one('click',function(){
+		alert("你单击了one按鈕")
+	});
+})
+</script>
+</head>
+<body>
+	<div data-role="page" id="first" class="demo_page" data-theme="a">
+		<div data-role="header">			
+			<h1>on() V.S one()</h1>
+		</div>
+		<div data-role="content">
+			<input type="button" value="on" id="btn_on">
+			<input type="button" value="one" id="btn_one">
+		</div>
+		<div data-role="footer">
+			<h4>ch12_01t</h4>
+		</div>
+	</div>
+</body>
+</html>

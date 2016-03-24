@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+<title></title> 
+<script src="jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+$(function () {	
+	//打开数据库
+	var dbSize=2*1024*1024;
+	 db = openDatabase('firstDB', '', '', dbSize);
+	 //创建数据表
+	 db.transaction(function(tx){  
+		tx.executeSql("CREATE TABLE IF NOT EXISTS customer (id integer PRIMARY KEY,name char(10),address varchar(200))",[],onSuccess,onError); 
+	});
+	function onSuccess(tx, results) 
+	{
+	  $("div").html("打开数据库成功!")
+	}
+	function onError(e) 
+	{
+	  $("div").html("打开数据库错误:"+e)
+	}
+
+})
+</script>  
+</head>
+<body>
+     <div id="message"></div> 
+</body>
+</html>

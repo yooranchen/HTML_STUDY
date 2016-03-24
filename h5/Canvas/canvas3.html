@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    function draw(id) {
+        var canvas = document.getElementById(id);
+        var context = canvas.getContext("2d");
+
+        context.fillStyle = "#eeeeef";
+        context.fillRect(0, 0, 500, 500);
+        image = new Image();
+        image.src = "logo.jpg";
+        image.onload = function () {
+            drawImage(context, image);
+        };
+        function drawImage(context, image) {
+            context.drawImage(image, 0, 0, 200, 200);
+            context.drawImage(image, 270, 270, 380, 380, 230, 230, 250, 250);
+        }
+    }
+</script>
+<body onload="draw('canvas1')">
+<canvas id="canvas1" width="500px" height="500px"></canvas>
+</body>
+</html>

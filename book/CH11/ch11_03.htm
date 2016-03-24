@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>ch11_03</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--引用jQuery Mobile函数库-->
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+<!--优化屏幕宽度-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css">
+#content{text-align:center;}
+</style>
+</head>
+<body>
+	<!--第一页-->
+	<div data-role="page" data-title="第一页" id="first">
+		<div data-role="header">
+			<h1>第一页</h1>
+		</div>
+		<div data-role="content" id="content">
+			<a href="#second" data-rel="dialog">按我到第二页</a>
+		</div>
+		<div data-role="footer">
+			<h4>页脚</h4>
+		</div>
+		</div>
+	<!--第二页-->
+	<div data-role="page" data-title="第二页" id="second">
+		<div data-role="header">
+			<h1>第二页</h1>
+		</div>
+		<div data-role="content" id="content">
+			这是弹出的窗口
+		</div>		
+	</div>
+</body>
+
+
+</html>

@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>转场特效</title>
+<!--最佳化屏幕宽度-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="jquery.mobile-1.4.0.min.css" />
+<script src="jquery-1.9.1.min.js"></script>
+<script src="jquery.mobile-1.4.0.min.js"></script>
+<script type="text/javascript">
+$( document ).one( "pagecreate", ".demo_page", function() {
+	$("#goSecond").on('click',function(){
+		$( ":mobile-pagecontainer" ).pagecontainer( "change", "#second", {
+            transition: "slide"
+        });
+	});
+	$("#gofirst").on('click',function(){
+		$( ":mobile-pagecontainer" ).pagecontainer( "change", "#first", {
+            transition: "pop"
+        });
+	});
+
+})
+</script>
+</head>
+<body>
+	<!--第一页-->
+	<div data-role="page" data-title="第一页" id="first" class="demo_page" data-theme="a">
+		<div data-role="header">
+			<a href="#" id="goSecond">按我到第二页</a>
+			<h1>浪淘沙</h1>
+		</div>
+		<div data-role="content">
+		罗衾不耐五更寒。梦里不知身是客，一晌贪欢。<br>
+		独自莫凭栏，无限江山，别时容易见时难。<br>
+		流水落花春去也，天上人间。
+		</div>
+		<div data-role="footer">
+			<h4>李煜《浪淘沙》</h4>
+		</div>
+	</div>
+	<!--第二页-->
+	<div data-role="page" data-title="第二页" id="second" class="demo_page" data-theme="b">
+		<div data-role="header">
+			<a href="#first" data-transition="pop">回上页</a>
+			<a href="#" id="gofirst">返回第一页</a>
+			<h1>锦&nbsp;瑟</h1>
+		</div>
+		<div data-role="content">
+		锦瑟无端五十弦，一弦一柱思华年。<br>
+		庄生晓梦迷蝴蝶，望帝春心托杜鹃。<br>
+		沧海月明珠有泪，蓝田日暖玉生烟。<br>
+		此情可待成追忆，只是当时已惘然。
+		</div>
+		<div data-role="footer">
+			<h4>李商隐《锦瑟》</h4>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="">
+<title>ch03_08</title>
+</head>
+<body>
+
+<h3>教学意见调查表</h3>
+<form method="post" action="" enctype="text/plain">
+<fieldset>
+<legend>个人及课程资料</legend>
+<ol>
+	<li>
+	科目名称：<input type="text" name="subject" autofocus />	
+	</li>
+	<li>
+	请选择系所：
+	<select size="1" name="department">
+	<option>英文系</option>
+	<option>法律系</option>
+	<option>信息管理系</option>
+	<option>电子工程系</option>
+	<option>资讯工程系</option>
+	</select>
+	</li>
+	<li>
+	讲师：<input type="text" name="teacher" />
+	</li>
+	<li>
+	性别：
+	<input type="radio" name="sex" value="男生" checked />男生 
+	<input type="radio" name="sex" value="女生" />女生
+	</li>
+	<li>
+	开课日期：<input type="date" name="startdate" />	
+	</li>
+</ol>
+</fieldset>
+<fieldset>
+<legend>意见调查</legend>
+<ol>
+	<li>
+	这门课你的出席状况是
+	<input type="radio" name="assist" value="没有缺课" />没有缺课&nbsp;
+	<input type="radio" name="assist" value="缺课1-3次" />缺课1-3次&nbsp; 
+	<input type="radio" name="assist" value="缺课4-6次" />缺课4-6次&nbsp;
+	<input type="radio" name="assist" value="缺课6次以上" />缺课6次以上
+	</li>
+	<li>
+	你对这门课的学习态度 
+	<input type="radio" name="attitude" value="很认真" />很认真&nbsp; 
+	<input type="radio" name="attitude" value="还算认真" />还算认真&nbsp; 
+	<input type="radio" name="attitude" value="很不认真" />很不认真
+	</li>
+	<li>
+	修习这门课的原因(可复选) 
+	<input type="checkbox" name="reason" value="必修" />必修 
+	<input type="checkbox" name="reason" value="凑学分" />凑学分 
+	<input type="checkbox" name="reason" value="个人兴趣" />个人兴趣 
+	<input type="checkbox" name="reason" value="其他" />其他原因
+	</li>
+	<li>
+	请简述你对此门课程的期望或改进的建议： <br />
+	<textarea rows="3" name="hope" cols="50"></textarea>		
+	</li>
+</ol>
+</fieldset>
+<input type="submit" value="提交" />
+<input type="reset" value="重写" />
+</form>
+
+
+</body>
+</html>

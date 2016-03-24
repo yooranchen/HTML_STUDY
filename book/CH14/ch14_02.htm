@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="themes/mytheme.min.css" />
+  <link rel="stylesheet" href="datepicker/jquery.mobile.datepicker.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script> 
+  <script src="https://rawgithub.com/jquery/jquery-ui/1-10-stable/ui/jquery.ui.datepicker.js"></script>
+  <script src="http://code.jquery.com/mobile/git/jquery.mobile-git.js"></script> 
+  <script src="datepicker/jquery.mobile.datepicker.js"></script>
+
+<script language="javascript">
+    $(function() {
+	 	$( "#date-input" ).datepicker("option", "dateFormat", "yy-mm-dd");
+		$( "#date-input" ).datepicker("setDate", "2014-03-10" );
+		$( "#date-input" ).datepicker("option", "minDate", "2014-03-03"); 
+		$( "#date-input" ).datepicker("option", "maxDate", "2014-03-25"); 
+    });
+</script>
+</head>
+<body>
+ <div data-role="page">
+  <div data-role="header">
+    <h1>日期选择器</h1>
+  </div>
+  <div data-role="content">
+    <input type="text" id="date-input" data-inline="false" data-role="date">
+  </div>
+   <div data-role="footer">
+    <h4>Footer</h4>
+  </div>
+</div>
+</body>
+</html>

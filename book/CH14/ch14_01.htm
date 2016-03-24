@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+<title></title>
+<link rel="stylesheet" href="tablesorter/blue/style.css" type="text/css" />
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="tablesorter/jquery.tablesorter.js"></script> 
+
+<script type="text/javascript">
+$(function () { 
+		$("#myTable").tablesorter( {
+		 sortList: [[0,1]],
+		 headers: {1: {sorter: false} },
+		 widgets: ['zebra']
+		} );
+})
+</script>
+</head>
+<body>
+<table id="myTable" class="tablesorter">
+<thead> 
+<tr>
+	<th>学号</th>
+	<th>姓名</th>
+	<th>数学</th>
+	<th>英语</th>
+	<th>语文</th>
+</tr>
+</thead> 
+<tbody> 
+<tr>
+	<td>A001</td>
+	<td>陈小芳</td>
+	<td>100</td>
+	<td>100</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>A002</td>
+	<td>胡大宇</td>
+	<td>85</td>
+	<td>90</td>
+	<td>80</td>
+</tr>
+<tr>
+	<td>A003</td>
+	<td>林小凤</td>
+	<td>75</td>
+	<td>65</td>
+	<td>86</td>
+</tr>
+<tr>
+	<td>A004</td>
+	<td>黃小金</td>
+	<td>72</td>
+	<td>86</td>
+	<td>62</td>
+</tr>
+</tbody> 
+</table>
+</body>
+</html>

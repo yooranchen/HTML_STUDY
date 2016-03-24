@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>触摸事件</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="jquery.mobile-1.4.0.min.css" />
+<script src="jquery-1.9.1.min.js"></script>
+		<script type="text/javascript">
+		$(document).on("mobileinit", function(){
+			 $.event.special.tap.tapholdThreshold=2000
+		});
+		$(function() {
+			$("#main_content").on("tap",function(){
+				 $(this).css("color","red")
+			});
+			$("img").on("taphold",function(){
+				 $(this).hide();
+			});
+		});
+		</script>
+<script src="jquery.mobile-1.4.0.min.js"></script>
+</head>
+<body>
+	<div data-role="page" data-theme="a">
+		<div data-role="header">
+			<h1>浪淘沙</h1>
+		</div>
+		<div data-role="content">
+		<img src="images/pic2.jpg" width="231" height="200" border="0"><br>
+		<div id="main_content">
+		罗衾不耐五更寒。梦里不知身是客，一晌贪欢。<br>
+		独自莫凭栏，无限江山，别时容易见时难。<br>
+		流水落花春去也，天上人间。
+		</div>
+		</div>
+		<div data-role="footer">
+			<h4>李煜《浪淘沙》</h4>
+		</div>
+	</div>
+	
+</body>
+</html>

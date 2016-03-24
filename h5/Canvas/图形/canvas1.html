@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    function draw(id) {
+        var canvas = document.getElementById(id);
+        var context = canvas.getContext("2d");
+        var oprtns = new Array(
+                "source-atop",
+                "source-in",//只绘制重叠的
+                "source-out",//只绘制下方不重叠的
+                "source-over",//下方盖住上方
+                "destination-atop",//
+                "destination-in",
+                "destination-out",
+                "destination-over",
+                "lighter",
+                "copy",
+                "xor"//只绘制不重叠的
+        );
+        i = 12;
+        context.fillStyle = "blue";
+        context.fillRect(10, 10, 60, 60);
+        context.globalCompositeOperation = oprtns[i];
+        context.beginPath();
+        context.fillStyle = "red";
+        context.arc(60, 60, 30, Math.PI * 2, false);
+        context.fill();
+    }
+</script>
+<body onload="draw('canvas1')">
+<!--globalCompositeOperation = type-->
+<canvas id="canvas1" width="500px" height="500px"></canvas>
+</body>
+</html>

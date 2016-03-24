@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+<title>创建数据库和初始值</title> 
+<script src="jquery-1.10.2.min.js"></script>
+
+<script>
+$(function () {
+
+	window.indexedDB = window.indexedDB || window.mozIndexedDB || 	window.webkitIndexedDB || window.msIndexedDB;
+	if (!window.indexedDB) {
+	    alert("您的浏览器不支持indexedDB");
+	}
+
+   	//要新增的数据array
+	const customerData = [
+	  {name: "eileen", adress: "上海市", tel:"021" },
+	  {name: "brian", adress: "南京市", tel:"025" }
+	];
+	//打开数据库
+    var req = window.indexedDB.open("MyDatabase");
+    req.onsuccess = function (evt) {
+      db = this.result;
+      alert("openDb DONE");
+    };
+    req.onerror = function (evt) {
+      alert("openDb:", evt.target.errorCode);
+    };
+	//onupgradeneeded事件
+    req.onupgradeneeded = function(event) { 
+	  var db = event.target.result;
+	  //创建objectStore
+	  var objectStore = db.createObjectStore("customer", { keyPath: "user_id", autoIncrement : true });
+	  objectStore.createIndex("name", "name", { unique: false });
+	  objectStore.createIndex("address", "address", { unique: false });
+	  objectStore.createIndex("by_tel", "tel", { unique: false });
+	  //新增数据到objectStore
+	  for (var i in customerData) {
+		objectStore.add(customerData[i]);
+	  }
+	};
+})
+</script>
+</head>
+<body>
+</body>
+</html>

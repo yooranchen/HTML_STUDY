@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>progress</title>
+</head>
+<body>
+<!--任务完成的进度-->
+<script>
+
+    function btn() {
+        var i = 0;
+
+        function thread_one() {
+            if (i <= 100) {
+                i++;
+                doOnclick(i);
+            }
+        }
+
+        setInterval(thread_one, 100)
+    }
+    function doOnclick(newValue) {
+        var progress = document.getElementById("p");
+        progress.value = newValue;
+        progress.getElementsByTagName("span")[0].textContent = newValue;
+    }
+</script>
+<section>
+    <h2>progress元素的使用</h2>
+    <p>完成的百分比
+        <progress id="p" max="100" style="background-color: antiquewhite"><span>%</span></progress>
+    </p>
+    <input type="button" value="点击" onclick="btn()">
+</section>
+
+<!--meter元素,规定范围内的数值量-->
+<meter value="40" min="0" max="100" low="10" optimum="30"></meter>
+</body>
+</html>

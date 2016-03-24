@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>播放声音</title>
+</head>
+<body>
+
+<audio id="audio" src="raw/苏打绿%20-%20你心里最后一个%20%5Bmqms2%5D.mp3"
+       controls="controls">您的浏览器不支持哦
+</audio>
+<button  onclick="clickA()">播放/暂停</button>
+</body>
+<script>
+    var a = document.getElementById("audio");
+    function clickA() {
+        if (a.paused) {
+            a.play();
+        }else {
+            a.pause();
+        }
+    }
+</script>
+</html>
