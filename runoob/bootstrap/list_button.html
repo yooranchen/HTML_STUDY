@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bootstrap 实例 - 分割的按钮下拉菜单</title>
+    <script src="./static/jquery.min.js"></script>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="./static/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<div class="row" style="margin-left: 50px;margin-top: 200px">
+
+    <div class="btn-group dropup">
+        <button type="button" class="btn btn-default">默认</button>
+        <button type="button" class="btn btn-default dropdown-toggle"
+                data-toggle="dropdown">
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li role="presentation">
+                <a href="#" role="menuitem">功能</a>
+            </li>
+            <li role="presentation">
+                <a href="#" role="menuitem">功能</a>
+            </li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation">
+                <a href="#" role="menuitem">分离的连接</a>
+            </li>
+        </ul>
+    </div>
+    <div class="btn-group dropup">
+        <button type="button" class="btn btn-default dropdown-toggle"
+                data-toggle="dropdown">
+            默认
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li role="presentation">
+                <a href="#" role="menuitem">功能</a>
+            </li>
+            <li role="presentation">
+                <a href="#" role="menuitem">功能</a>
+            </li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation">
+                <a href="#" role="menuitem">分离的连接</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: Helvetica, Arial, sans-serif, 微软正黑体;
+    cursor: hand;
+    background-image: url('images/bg.jpg');
+    /*设置背景图为固定式*/
+    background-attachment: fixed;
+}
+
+#main {
+    /*水平居中*/
+    margin: 0px auto;
+    width: 400px;
+}
+
+header {
+    border: 1px #330000 solid;
+    width: 800px;
+    height: 80px;
+    background: #330000;
+}
+
+aside {
+    width: 170px;
+    float: left;
+    height: 400px;
+    background: url(images/bg_lt.png) no-repeat;
+}
+
+nav {
+    border: 0px #000000 solid;
+    margin: 0px auto;
+    padding: 0px;
+    margin-top: 170px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+nav li a {
+    display: block;
+    width: 150px;
+    height: 42px;
+    background-image: url("images/btn.png"); /*超链接原始状态背景图*/
+    background-repeat: no-repeat;
+    line-height: 35px;
+    text-indent: 45px;
+    text-decoration: none; /*不显示下划线*/
+    color: #333333;
+    font-size: 15px;
+    text-align: inherit;
+}
+
+nav li a:hover {
+    background-repeat: no-repeat;
+    background-image: url("images/btn_hover.png");
+    color: #FFFFFF;
+    text-align: inherit;
+}
+
+article {
+    /*显示左边框*/
+    border-right: 1px #330000 solid;
+    width: 625px;
+    margin-left: 175px;
+    height: 400px;
+    background-color: #FFFFFF;
+}
+
+footer {
+    border: 1px #330000 solid;
+    background: #330000;
+    color: #FFFFFF;
+    width: 800px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+
+h1#text1 {
+    margin: 0px;
+    padding: 0px;
+    top: 15px;
+    position: absolute;
+    font-size: 40px;
+    color: #FF0000;
+    margin-left: 50px;
+}
+
+h1#text2 {
+    position: absolute;
+    margin: 0px;
+    padding: 5px;
+    font-size: 30px;
+    color: #FFFFFF;
+    top: 30px;;
+    margin-left: 150px;
+    z-index: 1;
+    filter: glow(color- #FF0000, strength=5);
+    text-shadow: 5px 5px 5px #FF0000;
+}
+
+.consection {
+    display: block;
+    border: 0px #330000 solid;
+    width: 400px;
+    left: 10px;
+    top: 10px;
+    margin: 0px auto;
+    padding: 20px;
+}
+
+fieldset {
+    border: 1px solid;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+fieldset legend{
+    text-align: center;
+}
+
+img{
+    margin: 3px;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border: 2px solid;
+}
